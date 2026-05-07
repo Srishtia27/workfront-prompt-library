@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Workfront Prompt Library</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <div class="topbar">
+      <div class="brand" aria-label="Workfront Prompt Library">
+        <div class="brand-mark">✦</div>
+        <div>
+          Workfront · <small>Prompt Library</small>
+        </div>
+      </div>
+
+      <div class="search-wrap">
+        <div class="search-icon">⌕</div>
+        <input id="search" class="search" type="search" placeholder="Search by title, description, tags..." />
+      </div>
+
+      <div class="meta"><span id="count">43 prompts</span> · updated 2026-05-07</div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-row">
+        <div>
+          <h1>Browse. Pick. Copy. Paste into your AI tool.</h1>
+          <p>
+            A reference library of complex prompts the team can use across Workfront engagements.
+            Cards are grouped by <strong>object / topic</strong> — Projects &amp; Templates, Custom Forms,
+            Request Queues, Reports, Fusion, governance, and more. Click a card to view the full prompt,
+            then copy and paste into ChatGPT, Claude, Gemini, or whichever AI tool you use.
+          </p>
+        </div>
+        <div class="hero-note">
+          <strong>Designed for reuse</strong><br />
+          Use the filters to narrow by object, then copy a prompt and replace any <code>{{placeholders}}</code>
+          with your own context. Each card is written to support a real scenario, not a simple how-to.
+        </div>
+      </div>
+    </div>
+
+    <div class="filters" id="filters"></div>
+
+    <div id="section-view" class="section">
+      <div class="section-header">
+        <div class="bar"></div>
+        <h2 id="section-title">All Prompts</h2>
+        <p id="section-subtitle">Filter by category or search to narrow results.</p>
+      </div>
+
+      <div class="grid" id="grid"></div>
+    </div>
+
+    <div id="all-sections"></div>
+
+    <div class="empty hidden" id="empty">No prompts match your search or selected filter.</div>
+  </div>
+
+  <dialog id="modal">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <h3 id="modal-title"></h3>
+          <p id="modal-desc"></p>
+        </div>
+        <button class="close-btn" onclick="closeModal()">Close</button>
+      </div>
+      <div class="modal-grid">
+        <div class="panel">
+          <h4>Prompt</h4>
+          <pre id="modal-prompt"></pre>
+        </div>
+        <div class="panel">
+          <h4>Metadata</h4>
+          <pre id="modal-meta"></pre>
+        </div>
+      </div>
+      <div class="close-row">
+        <button class="btn" onclick="copyCurrent()">Copy prompt</button>
+        <button class="btn primary" onclick="closeModal()" style="margin-left:10px;">Done</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

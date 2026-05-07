@@ -146,7 +146,7 @@ function renderCards() {
       html += `
         <section class="category-section">
           <div class="section-header">
-            <div class="bar" style="background:${cat.color}"></div>
+            <div class="bar"></div>
             <h2>${cat.name}</h2>
             <p>${sectionSubtitles[cat.name] || ''}</p>
           </div>
